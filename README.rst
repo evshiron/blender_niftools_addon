@@ -1,5 +1,25 @@
 The Blender Niftools Addons enables Blender to import and export NetImmerse files including ``.nif`` and ``.kf``.
 
+Intro
+------------
+
+This repo contains fixes to build latest Blender Niftools Addon, which I have spent hours to figure out.
+
+Many thanks to `@Candoran2 <https://github.com/Candoran2>`_, `@TagnumElite <https://github.com/TagnumElite>`_ and Niftools contributors.
+
+.. code-block:: shell
+
+  # with docker and docker-compose installed
+
+  git clone --recursive https://github.com/evshiron/blender_niftools_addon.git
+  cd blender_niftools_addon/install
+
+  # makezip.bat wasn't fixed
+  bash makezip.sh
+
+  # show built addon zip files
+  ls temp/*.zip
+
 Requirements
 ------------
 
