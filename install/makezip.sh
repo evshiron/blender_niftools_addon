@@ -19,7 +19,7 @@ echo "Creating Blender Niftools Addon addon zip"
 echo "Checking for temp folder: ${TEMP}"
 if [[ -d "${TEMP}" ]]; then
   echo "Removing old temp directory"
-  rm -rf "${TEMP}"
+  sudo rm -rf "${TEMP}"
 else
   echo "No existing temp folder"
 fi
@@ -31,8 +31,8 @@ cp -r "${ADDON_IN}" "${ADDON_OUT}"
 
 echo "Creating dependencies folder ${DEPS_OUT:-${BUILD_DIR}/dependencies}"
 #python -m pip install -i https://test.pypi.org/simple/ PyFFI==2.2.4.dev5 --target="${DEPS_OUT:-${BUILD_DIR}/dependencies}"
-python -m pip install "PyFFI==${PYFFI_VERSION}" --target="${DEPS_OUT:-${BUILD_DIR}/dependencies}"
-docker compose up || exit 1
+docker-compose up --build || exit 1
+sudo python3 -m pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple "PyFFI==${PYFFI_VERSION}" --target="${DEPS_OUT:-${BUILD_DIR}/dependencies}"
 
 echo "Copying loose files"
 cp "${ROOT}"/AUTHORS.rst "${ADDON_OUT}"

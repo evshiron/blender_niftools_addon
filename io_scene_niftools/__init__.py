@@ -92,7 +92,8 @@ def register():
     # addon updater code and configurations in case of broken version, try to register the updater first
     # so that users can revert back to a working version
     NifLog.debug("Starting registration")
-    configure_autoupdater()
+    NifLog.debug("Disabling autoupdater")
+    # configure_autoupdater()
 
     register_modules(MODS, __name__)
 
